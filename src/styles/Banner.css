@@ -1,0 +1,201 @@
+/* Banner Styles */
+.banner-section {
+	margin-top: 2rem;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.banner-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.banner-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.banner-text-content {
+  position: relative;
+  z-index: 3;
+  padding: 2rem;
+  color: white;
+}
+
+.server-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.server-ip-banner {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.server-ip-banner:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ip-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.ip-address {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  user-select: all;
+  white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .banner-section {
+    height: 250px;
+  }
+
+  .banner-text-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-section {
+    height: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  .banner-text-content {
+    padding: 1.2rem;
+  }
+
+  .server-ip-banner {
+    padding: 0.6rem 1.2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .ip-label {
+    font-size: 0.9rem;
+  }
+
+  .ip-address {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-section {
+    height: 180px;
+  }
+
+  .banner-text-content {
+    padding: 1rem;
+  }
+
+  .server-ip-banner {
+    padding: 0.5rem 1rem;
+  }
+
+  .ip-label {
+    font-size: 0.85rem;
+  }
+
+  .ip-address {
+    font-size: 0.95rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+.server-ip-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #1c1c1c;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.server-ip-container:hover {
+  background-color: #2a2a2a;
+}
+
+.ip-text {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4adede);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.copy-icon {
+  color: white;
+  width: 18px;
+  height: 18px;
+}
+
+.copied-tooltip {
+  position: absolute;
+  top: -26px;
+  right: 0;
+  background: #2a2a2a;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  opacity: 0.9;
+  pointer-events: none;
+}

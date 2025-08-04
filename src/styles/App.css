@@ -13,7 +13,7 @@
     --border-color: rgba(240, 246, 252, 0.15); /* Slightly more visible border */
     --shadow-color: rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
     --transition-base: 0.3s ease; /* Centralized transition timing */
-    --border-radius: 0.75rem; /* Consistent border-radius */
+    --border-radius: 15px; /* Consistent border-radius */
 }
 
 @keyframes gradient-animation {
@@ -150,20 +150,19 @@ body {
 }
 
 .categories-sidebar {
-    width: 260px; /* Slightly narrower for balance */
+    max-height: calc(100vh - 70px);
+    position: sticky;
+    top: 70px; /* Adjusted to stick below the header */
+    width: 260px;
     flex-shrink: 0;
-    height: 600px; /* Fixed height for consistency */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .sidebar-content {
-    background: var(--background-light);
     border-radius: var(--border-radius);
-    padding: 1.5rem;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 6px 20px var(--shadow-color);
+    padding: 2rem;
 }
 
 .shop-content {
@@ -323,6 +322,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Slightly larger min-width for better spacing */
     gap: 2rem;
+    margin-bottom: 30px;
 }
 
 .privilege-card, .case-item {
@@ -373,10 +373,9 @@ body {
 
 .privilege-image {
     width: 100%;
-    max-width: 160px;
     height: auto;
     object-fit: cover;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     margin-bottom: 1.2rem;
     border: 2px solid var(--primary-color);
     box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);

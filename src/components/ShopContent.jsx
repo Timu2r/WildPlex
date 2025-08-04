@@ -1,12 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
+import { ClipboardCopy } from 'lucide-react'
 import { Gem, Star, Shield } from 'lucide-react'
+import Banner from './Banner'
 
 const privilegeImages = import.meta.glob(
 	['../assets/*.png', '../assets/*.jpeg'],
 	{ eager: true }
 )
 
-const ShopContent = ({
+  const ShopContent = ({
 	activeCategory,
 	privileges,
 	cases,
@@ -17,11 +20,12 @@ const ShopContent = ({
 	setItemType,
 	setShowModal,
 	calculatePrice,
-	nickname,
-	setSelectedQuantity,
 }) => {
+
 	return (
 		<main className='shop-content'>
+			<Banner />
+
 			<div className='shop-header'>
 				<h2 className='shop-title'>Магазин</h2>
 			</div>
@@ -87,39 +91,22 @@ const ShopContent = ({
 			)}
 
 			{activeCategory === 'cases' && (
-				<div className='cases-grid'>
+				<div className='privileges-grid'>
 					{cases.map(caseItem => {
-						const caseImageClass =
-							caseItem.image === 'coin-case'
-								? 'case-coin'
-								: caseItem.image === 'title-case'
-								? 'case-title'
-								: 'case-donation'
-						const caseIcon =
-							caseItem.image === 'coin-case' ? (
-								<Gem className='w-8 h-8' />
-							) : caseItem.image === 'title-case' ? (
-								<Star className='w-8 h-8' />
-							) : (
-								<Shield className='w-8 h-8' />
-							)
-
+						const price = caseItem.quantities[0].price
 						return (
-							<div key={caseItem.id} className='case-item'>
+							<div
+								key={caseItem.id}
+								className={`privilege-card ${caseItem.color || ''}`}
+							>
 								<div className='card-content-wrapper'>
-									<div className={`case-item-image ${caseImageClass}`}>
-										<img
-											src={
-												privilegeImages[`../assets/${caseItem.image}`].default
-											}
-											alt='Case Image'
-											className='case-image'
-										/>
-									</div>
-									<h3 className='case-item-name'>{caseItem.name}</h3>
-									<div className='case-item-price'>
-										{caseItem.quantities[0].price}₽
-									</div>
+									<img
+										src={privilegeImages[`../assets/${caseItem.image}`].default}
+										alt='Case Image'
+										className='privilege-image'
+									/>
+									<h3 className='privilege-name'>{caseItem.name}</h3>
+									<div className='privilege-price'>{price} ₽</div>
 									<button
 										className='privilege-button'
 										onClick={() => {
@@ -128,7 +115,7 @@ const ShopContent = ({
 											setShowModal(true)
 										}}
 									>
-										купить
+										Купить
 									</button>
 								</div>
 							</div>
@@ -140,7 +127,7 @@ const ShopContent = ({
 				<div className='placeholder-section'>
 					<div className='placeholder-icon'>
 						<img
-							src={privilegeImages['../assets/ava.jpeg'].default}
+							src={privilegeImages['../assets/case plexiki.png'].default}
 							alt='Placeholder Image'
 							className='placeholder-image'
 						/>
@@ -153,7 +140,7 @@ const ShopContent = ({
 				<div className='placeholder-section'>
 					<div className='placeholder-icon'>
 						<img
-							src={privilegeImages['../assets/ava.jpeg'].default}
+							src={privilegeImages['../assets/case plexiki.png'].default}
 							alt='Placeholder Image'
 							className='placeholder-image'
 						/>

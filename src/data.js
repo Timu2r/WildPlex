@@ -2,7 +2,7 @@ export const privileges = [
 	{
 		id: 'legend',
 		name: 'LEGEND',
-		image: 'ava.jpeg',
+		image: 'legend.png',
 		icon: 'Crown',
 		prices: {
 			'1m': 669,
@@ -35,7 +35,7 @@ export const privileges = [
 	{
 		id: 'imperator',
 		name: 'IMPERATOR',
-		image: 'ava.jpeg',
+		image: 'IMPERATOR.png',
 		icon: 'Shield',
 		prices: {
 			'1m': 469,
@@ -69,7 +69,7 @@ export const privileges = [
 	{
 		id: 'deadly',
 		name: 'DEADLY',
-		image: 'ava.jpeg',
+		image: 'deadly.png',
 		icon: 'Flame',
 		prices: {
 			'1m': 369,
@@ -97,7 +97,7 @@ export const privileges = [
 	{
 		id: 'shade',
 		name: 'SHADE',
-		image: 'ava.jpeg',
+		image: 'shade.png',
 		icon: 'Ghost',
 		prices: {
 			'1m': 269,
@@ -123,7 +123,7 @@ export const privileges = [
 	{
 		id: 'leader',
 		name: 'LEADER',
-		image: 'ava.jpeg',
+		image: 'leader.png',
 		icon: 'Star',
 		prices: {
 			'1m': 119,
@@ -154,7 +154,7 @@ export const privileges = [
 	{
 		id: 'ambush',
 		name: 'AMBUSH',
-		image: 'ava.jpeg',
+		image: 'ambush.png',
 		icon: 'Eye',
 		prices: {
 			'1m': 49,
@@ -180,7 +180,7 @@ export const privileges = [
 	{
 		id: 'survivor',
 		name: 'SURVIVOR',
-		image: 'ava.jpeg',
+		image: 'survivor.png',
 		icon: 'Pickaxe',
 		prices: {
 			'1m': 29,
@@ -211,7 +211,7 @@ export const cases = [
 	{
 		id: 'donation-case',
 		name: 'КЕЙС С ДОНАТОМ',
-		image: 'ava.jpeg',
+		image: 'case donat.png',
 		features: [
 			'Содержит случайную привилегию',
 			'Шанс на выпадение редких донатов',
@@ -228,9 +228,28 @@ export const cases = [
 		],
 	},
 	{
+		id: 'plexiki-case',
+		name: 'КЕЙС С ПЛЕКСИКИ',
+		image: 'case plexiki.png',
+		features: [
+			'Содержит случайное количество плексиков',
+			'Плексики - это игровая валюта для особых покупок',
+		],
+		additionalFeatures: [
+			'Может выпасть: от 50 до 5000 плексиков',
+			'Отличный способ пополнить баланс!',
+		],
+		quantities: [
+			{ id: '1', label: '1 шт.', price: 50 },
+			{ id: '3', label: '3 шт.', price: 120 },
+			{ id: '5', label: '5 шт.', price: 180 },
+			{ id: '10', label: '10 шт.', price: 300 },
+		],
+	},
+	{
 		id: 'coin-case',
 		name: 'КЕЙС С МОНЕТАМИ',
-		image: 'ava.jpeg',
+		image: 'case Mone.png',
 		features: [
 			'Содержит случайное количество монет',
 			'Используйте монеты для покупки предметов в игре',
@@ -249,7 +268,7 @@ export const cases = [
 	{
 		id: 'title-case',
 		name: 'КЕЙС С ТИТУЛАМИ',
-		image: 'ava.jpeg',
+		image: 'case titul.png',
 		features: [
 			'Содержит случайный уникальный титул',
 			'Выделитесь среди других игроков',
@@ -263,25 +282,6 @@ export const cases = [
 			{ id: '3', label: '3 шт.', price: 50 },
 			{ id: '5', label: '5 шт.', price: 80 },
 			{ id: '10', label: '10 шт.', price: 130 },
-		],
-	},
-	{
-		id: 'plexiki-case',
-		name: 'КЕЙС С ПЛЕКСИКИ',
-		image: 'ava.jpeg',
-		features: [
-			'Содержит случайное количество плексиков',
-			'Плексики - это игровая валюта для особых покупок',
-		],
-		additionalFeatures: [
-			'Может выпасть: от 50 до 5000 плексиков',
-			'Отличный способ пополнить баланс!',
-		],
-		quantities: [
-			{ id: '1', label: '1 шт.', price: 50 },
-			{ id: '3', label: '3 шт.', price: 120 },
-			{ id: '5', label: '5 шт.', price: 180 },
-			{ id: '10', label: '10 шт.', price: 300 },
 		],
 	},
 ]

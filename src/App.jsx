@@ -7,6 +7,8 @@ import CasePurchaseModal from './components/CasePurchaseModal';
 import { useShop } from './hooks/useShop';
 import { privileges, cases, durations } from './data';
 import { Crown, Gem, Star, Shield } from 'lucide-react';
+import Banner from './components/Banner';
+import Footer from './components/Footer';
 
 const App = () => {
   const {
@@ -41,12 +43,16 @@ const App = () => {
     <div className="minecraft-donation-site">
       <Header />
       <div className="container main-layout">
-        <div className="category-navigation">
-          {categories.map((category) => (
-            <button key={category.id} onClick={() => setActiveCategory(category.id)} className={`category-tab ${activeCategory === category.id ? 'active' : ''}`}>
-              {category.icon}<span>{category.name}</span>
-            </button>
-          ))}
+        <div className="categories-sidebar">
+          <div className="sidebar-content">
+            <div className="category-navigation">
+              {categories.map((category) => (
+                <button key={category.id} onClick={() => setActiveCategory(category.id)} className={`category-tab ${activeCategory === category.id ? 'active' : ''}`}>
+                  {category.icon}<span>{category.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
         <ShopContent
           activeCategory={activeCategory}
@@ -94,6 +100,7 @@ const App = () => {
           setEmail={setEmail}
         />
       )}
+    {/* <Footer /> */}
     </div>
   );
 };
