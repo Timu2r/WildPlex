@@ -32,6 +32,7 @@
 
 .footer-logo:hover {
   transform: scale(1.1);
+  animation: pulse 1.5s infinite;
 }
 
 .footer-brand h1 {
@@ -132,6 +133,10 @@
   background-color: #444;
   border-color: #555;
   transform: translateY(-2px);
+}
+
+.action-icon:active {
+  transform: scale(0.95);
 }
 
 .action-icon svg {

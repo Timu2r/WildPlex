@@ -2,7 +2,7 @@
 
 /* Optimized font weights (removed 400, added 600 for better hierarchy) and included font-display for performance */
 :root {
-    --primary-color: #58a6ff; /* Brighter blue for accents */
+    --primary-color: #8b5cf6; /* Brighter purple for accents */
     --background-dark: #0d1117; /* Very dark background */
     --background-light: #161b22; /* Slightly lighter dark for elements */
     --text-light: #d1d5db; /* Slightly higher contrast for readability */
@@ -24,9 +24,9 @@
 
 /* Reduced animation duration for snappier feel, added will-change for performance */
 @keyframes subtle-glow {
-    0% { box-shadow: 0 0 8px rgba(88, 166, 255, 0.2); }
-    50% { box-shadow: 0 0 12px rgba(88, 166, 255, 0.4); }
-    100% { box-shadow: 0 0 8px rgba(88, 166, 255, 0.2); }
+        100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.2); }
+                50% { box-shadow: 0 0 12px rgba(139, 92, 246, 0.4); }
+    100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.2); }
 }
 
 html {
@@ -56,6 +56,22 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.logo-image {
+    width: 50px; /* Fixed size for consistency */
+    height: auto;
+    margin-right: 10px; /* Space between logo and text */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(68, 11, 68, 0.479);
+    position: relative;
+    top: 10px;
+}
+
+.logo-text{
+    position: relative;
+    bottom: 2px;
 }
 
 .header {
@@ -81,6 +97,11 @@ body {
     color: #fff;
     text-shadow: 0 2px 4px var(--shadow-color);
     letter-spacing: 0.05em; /* Subtle letter spacing for Minecraft vibe */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .logo-wild {
@@ -131,22 +152,23 @@ body {
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
-    background: rgba(88, 166, 255, 0.15);
+    background: rgba(139, 92, 246, 0.1);
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--primary-color);
-    box-shadow: 0 2px 8px rgba(88, 166, 255, 0.2);
+                box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
     transition: background-color var(--transition-base);
 }
 
 .server-ip:hover {
-    background: rgba(88, 166, 255, 0.3); /* Subtle hover effect */
+    background: rgba(139, 92, 246, 0.3); /* Subtle hover effect */
 }
 
 .main-layout {
     display: flex;
     gap: 2rem;
     padding-top: 2.5rem;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .categories-sidebar {
@@ -190,7 +212,7 @@ body {
 
 .history-button {
     color: var(--primary-color);
-    background: rgba(88, 166, 255, 0.1);
+    background: rgba(139, 92, 246, 0.1);
     border: 1px solid var(--primary-color);
     cursor: pointer;
     font-size: 1rem;
@@ -204,7 +226,7 @@ body {
 .history-button:focus {
     background-color: var(--primary-color);
     color: var(--background-dark);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
     outline: none;
 }
 
@@ -240,7 +262,13 @@ body {
     background-color: var(--primary-color);
     color: var(--text-dark);
     border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    animation: pulseActive 1.5s infinite alternate;
+}
+
+@keyframes pulseActive {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.01); }
 }
 
 .nickname-input-container {
@@ -270,7 +298,7 @@ body {
 .nickname-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3), 0 0 15px rgba(139, 92, 246, 0.5);
 }
 
 .duration-selection {
@@ -306,7 +334,7 @@ body {
 .duration-button:hover,
 .duration-button:focus {
     border-color: var(--primary-color);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 6px 16px var(--shadow-color);
     outline: none;
 }
@@ -315,7 +343,7 @@ body {
     background-color: var(--primary-color);
     color: var(--text-dark);
     border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
 }
 
 .privileges-grid, .cases-grid {
@@ -337,11 +365,13 @@ body {
     box-shadow: 0 6px 20px var(--shadow-color);
 }
 
+
 .privilege-card:hover, .case-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px var(--shadow-color);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 32px var(--shadow-color);
     animation: subtle-glow 2s ease infinite; /* Added subtle glow effect */
 }
+
 
 .privilege-card::before, .case-item::before {
     content: '';
@@ -350,7 +380,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(88, 166, 255, 0.15) 0%, rgba(88, 166, 255, 0) 70%);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0) 70%);
     transition: opacity var(--transition-base);
     opacity: 0;
 }
@@ -378,7 +408,7 @@ body {
     border-radius: 10px;
     margin-bottom: 1.2rem;
     border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
     aspect-ratio: 1/1; /* Ensure consistent image proportions */
 }
 
@@ -390,7 +420,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius);
-    background: rgba(88, 166, 255, 0.1);
+    background: rgba(139, 92, 246, 0.1);
     border: 1px solid var(--primary-color);
 }
 
@@ -430,7 +460,7 @@ body {
 .privilege-button:hover,
 .privilege-button:focus {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
     outline: none;
 }
 
@@ -455,6 +485,10 @@ body {
     outline: none;
 }
 
+.case-item-button:active {
+    transform: scale(0.98);
+}
+
 .privilege-features {
     margin-top: 1.2rem;
     font-size: 0.9rem;
@@ -470,6 +504,12 @@ body {
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     box-shadow: 0 6px 20px var(--shadow-color);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .placeholder-image {
@@ -479,7 +519,7 @@ body {
     border-radius: var(--border-radius);
     margin-bottom: 1.2rem;
     border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 .placeholder-title {

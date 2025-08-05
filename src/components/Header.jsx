@@ -1,11 +1,13 @@
 import React from 'react';
 import { serverOnline } from '../serverDatabase';
+import Logo from '../assets/logo.png';
+
 
 const Header = () => {
   return (
     <header className="header">
       <div className="container header-content">
-        <div className="logo"><span className="logo-wild">Wild</span>Plex</div>
+        <div className="logo"> <span ><img src={Logo} alt="WildPLEX Logo" className="logo-image" /></span> <span className="logo-text">WildPLEX</span></div>
         <nav className="navigation">
           <a href="https://vk.com/wildplex" className="nav-link">Группа VK</a>
           <a href="https://t.me/w1ldplex" className="nav-link">Телеграм</a>

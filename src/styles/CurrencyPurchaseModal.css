@@ -1,16 +1,16 @@
 /* CSS Variables for reusability and maintainability */
 :root {
-    --primary-color: #58a6ff;
+    --primary-color: #f958ff;
     --success-color: #3fb950;
     --error-color: #f85149;
     --text-primary: #f0f6fc;
     --text-secondary: #c9d1d9;
     --text-muted: #8b949e;
-    --background-dark: rgba(13, 17, 23, 0.7);
-    --background-darker: #0d1117;
+    --background-dark: rgba(23, 13, 22, 0.7);
+    --background-darker: #170d17;
     --border-light: rgba(240, 246, 252, 0.15);
     --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.2);
-    --shadow-glow: 0 0 0 4px rgba(88, 166, 255, 0.3);
+    --shadow-glow: 0 0 0 4px rgba(241, 88, 255, 0.3);
     --transition-ease: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -30,7 +30,7 @@
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #1a1e23 0%, #0d1117 100%);
+  background: linear-gradient(135deg, #211a23 0%, #150d17 100%);
   border-radius: 12px;
   width: 90%;
   max-width: 500px;
@@ -105,8 +105,12 @@
     object-fit: contain;
     border-radius: clamp(8px, 2vw, 12px);
     border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(197, 92, 246, 0.2);
     transition: transform var(--transition-ease);
+}
+
+.modal-currency-image:hover {
+    transform: scale(1.05);
 }
 
 .modal-currency-name {
@@ -142,8 +146,8 @@ modal-currency-details
 .nickname-input {
   width: 90%;
   padding: 12px 16px;
-  background-color: #0d1117;
-  border: 1px solid #30363d;
+  background-color: #0c090e;
+  border: 1px solid #3a303d;
   border-radius: 6px;
   color: #f0f6fc;
   font-size: 14px;
@@ -152,8 +156,8 @@ modal-currency-details
 
 .nickname-input:focus {
   outline: none;
-  border-color: #58a6ff;
-  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+  border-color: #de58ff;
+  box-shadow: 0 0 0 3px rgba(215, 92, 246, 0.3);
 }
 
 .nickname-input::placeholder {
@@ -221,8 +225,8 @@ modal-currency-details
 
 .custom-amount-input:focus {
   outline: none;
-  border-color: #58a6ff;
-  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+  border-color: #ec58ff;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
 }
 
 /* Price summary */
@@ -246,7 +250,7 @@ modal-currency-details
   font-weight: 600;
   color: #f0f6fc;
   padding-top: 8px;
-  border-top: 1px solid rgba(88, 166, 255, 0.2);
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 /* Purchase button */
@@ -268,6 +272,10 @@ modal-currency-details
   background-color: #2ea043;
 }
 
+.purchase-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
 .purchase-button:disabled {
   background-color: #484f58;
   cursor: not-allowed;
@@ -279,6 +287,17 @@ modal-currency-details
   from {
     opacity: 0;
     transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;

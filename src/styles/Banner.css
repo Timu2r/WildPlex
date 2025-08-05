@@ -78,6 +78,10 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+.server-ip-banner:active {
+  transform: scale(0.98);
+}
+
 .ip-label {
   font-size: 1rem;
   font-weight: 600;
@@ -174,7 +178,7 @@
 }
 
 .ip-text {
-  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4adede);
+  background: linear-gradient(90deg, #ff6ec4, #8b5cf6, #a78bfa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 500;

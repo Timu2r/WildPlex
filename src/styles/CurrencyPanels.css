@@ -1,16 +1,16 @@
 /* CSS Variables for reusability and maintainability */
 :root {
-    --primary-color: #58a6ff;
+    --primary-color: #ca58ff;
     --success-color: #3fb950;
     --error-color: #f85149;
     --text-primary: #f0f6fc;
     --text-secondary: #c9d1d9;
     --text-muted: #8b949e;
-    --background-dark: rgba(13, 17, 23, 0.7);
-    --background-darker: #0d1117;
-    --border-light: rgba(240, 246, 252, 0.15);
+    --background-dark: rgba(23, 13, 23, 0.7);
+    --background-darker: #140d17;
+    --border-light: rgba(250, 240, 252, 0.15);
     --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.2);
-    --shadow-glow: 0 0 0 4px rgba(88, 166, 255, 0.3);
+    --shadow-glow: 0 0 0 4px rgba(241, 88, 255, 0.3);
     --transition-ease: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -28,6 +28,7 @@
     width: 100%;
     margin: 20px auto;
     animation: fadeIn 0.5s var(--transition-ease) forwards;
+    opacity: 0;
 
     margin-bottom: 5rem;
 }
@@ -62,9 +63,9 @@
 }
 
 .tab-button.active {
-    background: linear-gradient(135deg, #1f6feb 0%, #0d419d 100%);
+    background: linear-gradient(135deg, #c91feb 0%, #8c0d9d 100%);
     color: var(--text-primary);
-    box-shadow: 0 4px 12px rgba(31, 111, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(201, 31, 235, 0.3);
     transform: scale(1.02);
 }
 
@@ -102,7 +103,7 @@
     object-fit: contain;
     border-radius: clamp(8px, 2vw, 12px);
     border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(227, 88, 255, 0.2);
     transition: transform var(--transition-ease);
 }
 
@@ -236,9 +237,9 @@
 .calculation-summary {
     margin-top: clamp(12px, 3vw, 16px);
     padding: clamp(12px, 3vw, 16px);
-    background: rgba(88, 166, 255, 0.1);
+    background: rgba(139, 92, 246, 0.1);
     border-radius: clamp(8px, 2vw, 12px);
-    border: 1px solid rgba(88, 166, 255, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.3);
     color: var(--text-secondary);
     font-size: clamp(13px, 2.5vw, 15px);
     line-height: 1.5;
@@ -285,6 +286,10 @@
     background: linear-gradient(135deg, #2ea043 0%, #238636 100%);
     box-shadow: 0 12px 24px rgba(46, 160, 67, 0.4);
     transform: translateY(-2px);
+}
+
+.purchase-button:active:not(:disabled) {
+    transform: scale(0.98);
 }
 
 .purchase-button:disabled {
