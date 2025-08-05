@@ -3,8 +3,14 @@ import { useState } from 'react'
 import { ClipboardCopy } from 'lucide-react'
 import { Gem, Star, Shield } from 'lucide-react'
 import Banner from './Banner'
+import CurrencyPanels from './CurrencyPanels'
 
 const privilegeImages = import.meta.glob(
+	['../assets/*.png', '../assets/*.jpeg'],
+	{ eager: true }
+)
+
+const currencyImages = import.meta.glob(
 	['../assets/*.png', '../assets/*.jpeg'],
 	{ eager: true }
 )
@@ -14,12 +20,14 @@ const privilegeImages = import.meta.glob(
 	privileges,
 	cases,
 	durations,
+	currencies,
 	selectedDuration,
 	setSelectedDuration,
 	setSelectedItem,
 	setItemType,
 	setShowModal,
 	calculatePrice,
+	setSelectedQuantity,
 }) => {
 
 	return (
@@ -124,17 +132,14 @@ const privilegeImages = import.meta.glob(
 				</div>
 			)}
 			{activeCategory === 'currency' && (
-				<div className='placeholder-section'>
-					<div className='placeholder-icon'>
-						<img
-							src={privilegeImages['../assets/case plexiki.png'].default}
-							alt='Placeholder Image'
-							className='placeholder-image'
-						/>
-					</div>
-					<h3 className='placeholder-title'>Валюты</h3>
-					<p className='placeholder-text'>Раздел в разработке</p>
-				</div>
+				<CurrencyPanels
+					currencies={currencies}
+					calculatePrice={calculatePrice}
+					setSelectedItem={setSelectedItem}
+					setItemType={setItemType}
+					setShowModal={setShowModal}
+					setSelectedQuantity={setSelectedQuantity}
+				/>
 			)}
 			{activeCategory === 'other' && (
 				<div className='placeholder-section'>

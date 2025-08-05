@@ -1,4 +1,5 @@
 import React from 'react';
+import { serverOnline } from '../serverDatabase';
 
 const Header = () => {
   return (
@@ -11,7 +12,10 @@ const Header = () => {
           <a href="#" className="nav-link">Поддержка</a>
           <a href="#" className="nav-link">Топы</a>
         </nav>
-        <div className="server-ip"><span role="img" aria-label="money">💰</span> PLAY.WILDPLEX.RU <span role="img" aria-label="fire">🔥</span></div>
+        <div className="server-info">
+          <div className="server-ip"><span role="img" aria-label="money">💰</span> PLAY.WILDPLEX.RU <span role="img" aria-label="fire">🔥</span></div>
+          {/* <div className="server-online">Онлайн: {serverOnline}</div> */}
+        </div>
       </div>
     </header>
   );

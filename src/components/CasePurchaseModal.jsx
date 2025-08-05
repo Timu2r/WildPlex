@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import '../styles/PurchaseModal.css'
+import { players } from '../serverDatabase.js'
 
 const privilegeImages = import.meta.glob('../assets/*.{png,jpg,jpeg}', {
 	eager: true,
@@ -20,6 +21,27 @@ const CasePurchaseModal = ({
 }) => {
 	const [isLandscape, setIsLandscape] = useState(window.innerWidth > 1024)
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+	const [nicknameError, setNicknameError] = useState('')
+
+	useEffect(() => {
+		setSelectedQuantity('1'); // Reset quantity when selectedItem changes
+	}, [selectedItem, setSelectedQuantity]);
+
+	const validateNickname = useCallback((name) => {
+		if (name && !players.find(p => p.nickname.toLowerCase() === name.toLowerCase())) {
+			setNicknameError('Такого игрока не существует')
+		} else {
+			setNicknameError('')
+		}
+	}, [])
+
+	useEffect(() => {
+		if (nickname.trim() !== '') {
+			validateNickname(nickname);
+		} else {
+			setNicknameError('');
+		}
+	}, [nickname, validateNickname, setNicknameError]);
 
 	const handleResize = useCallback(() => {
 		setIsLandscape(window.innerWidth > 1024)
@@ -72,11 +94,21 @@ const CasePurchaseModal = ({
 		e => {
 			if (e.key === 'Enter' && nickname && email) {
 				e.preventDefault()
-				handlePurchase()
+				validateNickname(nickname);
+				if (!nicknameError) {
+					handlePurchase()
+				}
 			}
 		},
-		[nickname, email, handlePurchase]
+		[nickname, email, handlePurchase, validateNickname, nicknameError]
 	)
+
+	const handlePurchaseClick = useCallback(() => {
+		validateNickname(nickname);
+		if (!nicknameError) {
+			handlePurchase();
+		}
+	}, [nickname, handlePurchase, validateNickname, nicknameError]);
 
 	const item = cases.find(c => c.id === selectedItem)
 
@@ -147,11 +179,12 @@ const CasePurchaseModal = ({
 								value={nickname}
 								onChange={e => setNickname(e.target.value)}
 								placeholder='Введите никнейм игрока'
-								className='modal-nickname-input'
+								className={`modal-nickname-input ${nicknameError ? 'input-error' : ''}`}
 								required
 								autoComplete='username'
 								maxLength='32'
 							/>
+							{nicknameError && <p className='modal-error-message'>{nicknameError}</p>}
 
 							<label htmlFor='email-input' className='modal-nickname-label'>
 								Электронная почта:
@@ -226,13 +259,15 @@ const CasePurchaseModal = ({
 				</div>
 
 				<button
-					onClick={handlePurchase}
+					onClick={handlePurchaseClick}
 					className='modal-purchase-button'
-					disabled={!nickname?.trim() || !email?.trim() || !selectedQuantity}
+					disabled={!nickname?.trim() || !email?.trim() || !selectedQuantity || nicknameError}
 					type='button'
 					aria-label={`Продолжить покупку ${item.name} за ${finalPrice} рублей`}
 				>
-					{!nickname?.trim() || !email?.trim()
+					{nicknameError
+						? nicknameError
+						: !nickname?.trim() || !email?.trim()
 						? 'Заполните все поля'
 						: !selectedQuantity
 						? 'Выберите количество'

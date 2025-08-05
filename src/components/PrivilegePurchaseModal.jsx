@@ -201,6 +201,12 @@ const PrivilegePurchaseModal = ({
                 <p key={index} role="listitem">{command}</p>
               ))}
             </div>
+            <div className='modal-commands-title'>Дополнительные функции:</div>
+            <div className='modal-commands-list' role="list">
+              {item.additionalFeatures.map((additionalFeatures, index) => (
+                <p key={index} role="listitem">{additionalFeatures}</p>
+              ))}
+            </div>
           </div>
         )}
 

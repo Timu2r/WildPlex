@@ -303,3 +303,34 @@ export const durations = [
 		sapphires: '+1920 сапфиров',
 	},
 ]
+
+export const privilegeOrder = [
+	'legend',
+	'imperator',
+	'deadly',
+	'shade',
+	'leader',
+	'ambush',
+	'survivor',
+];
+
+export const currencies = [
+	{
+		id: 'plexiki',
+		name: 'Плексики',
+		image: 'plexici.png',
+		description: '1 плексик = 5',
+		quantities: [
+			{ id: '1', label: '1 Плексик', price: 5 },
+		],
+	},
+	{
+		id: 'coins',
+		name: 'Монеты',
+		image: 'money.png',
+		description: '10 монет = 1',
+		quantities: [
+			{ id: '1', label: '1 Монета', price: 0.1 },
+		],
+	},
+];

@@ -4,8 +4,9 @@ import Header from './components/Header';
 import ShopContent from './components/ShopContent';
 import PrivilegePurchaseModal from './components/PrivilegePurchaseModal';
 import CasePurchaseModal from './components/CasePurchaseModal';
+import CurrencyPurchaseModal from './components/CurrencyPurchaseModal';
 import { useShop } from './hooks/useShop';
-import { privileges, cases, durations } from './data';
+import { privileges, cases, durations, currencies } from './data';
 import { Crown, Gem, Star, Shield } from 'lucide-react';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
@@ -59,6 +60,7 @@ const App = () => {
           privileges={privileges}
           cases={cases}
           durations={durations}
+          currencies={currencies}
           selectedDuration={selectedDuration}
           setSelectedDuration={setSelectedDuration}
           setSelectedItem={setSelectedItem}
@@ -95,6 +97,21 @@ const App = () => {
           handlePurchase={handlePurchase}
           setShowModal={setShowModal}
           cases={cases}
+          calculatePrice={calculatePrice}
+          email={email}
+          setEmail={setEmail}
+        />
+      )}
+      {showModal && itemType === 'currency' && (
+        <CurrencyPurchaseModal
+          selectedItem={selectedItem}
+          selectedQuantity={selectedQuantity}
+          setSelectedQuantity={setSelectedQuantity}
+          nickname={nickname}
+          setNickname={setNickname}
+          handlePurchase={handlePurchase}
+          setShowModal={setShowModal}
+          currencies={currencies}
           calculatePrice={calculatePrice}
           email={email}
           setEmail={setEmail}
